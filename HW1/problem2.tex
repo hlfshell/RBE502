@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{RBE 502 HW 1 - Problem 2}
+\author{Keith Chester}
+\date{August 2021}
+
+\begin{document}
+
+\maketitle
+
+In this problem we look at a system of a 1 dimensional minecart on a frictionless path. Here, the equation for the system is represented as
+
+\[m\dot v = u +\phi(t)\]
+
+where \(u\) is our control system, set to:
+
+\[u=k_p(s-v)+k_d(0-\dot v)=k_ps-k_pv-k_d\dot v\]
+
+which plugged into our systems equation:
+
+\[(m+k_d)\dot v + k_p v = k_p s + \phi(t)\]
+
+We will attempt to find the upperbound for \(\mid v \mid\) as \(t \to \infty\) . To do this, first we shall rewrite our equation in a form of \(\frac{dy}{dt}+ay=g(t)\).
+
+\[\dot v + \frac{k_p v}{m+k_d}= \frac{k_p s + \phi(t)}{m+k_d}\]
+
+...so our resulting function is
+
+\[v = e^{-\frac{k_p}{m+kd}t} \int {e^{\frac{k_p}{m+k_d}t}(\frac{k_p s + \phi(t)}{m + k_d})} \,dt + c_1 e^{-\frac{k_p}{m+kd}t} \]
+
+...and if we expand our integral into two separate integrals: 
+
+\[v = e^{-\frac{k_p}{m+kd}t} \int \frac{e^{\frac{k_p}{m+k_d}t} s k_p}{m+k_d} dt + e^{-\frac{k_p}{m+kd}t} \int \frac{e^{\frac{k_p}{m+k_d}t} \phi(t)}{m + k_d} \,dt + c_1 e^{-\frac{k_p}{m+kd}t}\]
+
+...where we can easily take care of one of the integrals:
+
+\[v = e^{-\frac{k_p}{m+kd}t} e^{\frac{k_p}{m+k_d} t } s + e^{-\frac{k_p}{m+kd}t} \int \frac{e^{\frac{k_p}{m+k_d}t} \phi(t)}{m + k_d} \,dt + c_1 e^{-\frac{k_p}{m+kd}t}\]
+
+...which simplifies down to:
+
+\[v = s + e^{-\frac{k_p}{m+kd}t} \int \frac{e^{\frac{k_p}{m+k_d}t} \phi(t)}{m + k_d} \,dt + c_1 e^{-\frac{k_p}{m+kd}t}\]
+
+From here, we can utilize integration by parts for our remaining integral. For our purposes:
+
+\[\int u v \,dt = u \int v \,dt - \int (\dot u \int v \,dt)\,dt\]
+
+...where \(u = \frac{\phi(t)}{m+k_d}\), \(\dot u = \frac{\dot \phi(t)}{m+k_d}, v = e^{\frac{k_p}{m+k_d}t}\), and \(\int v = \frac{e^{\frac{k_p}{m+k_d}t}(m+k_d)}{k_p}\), thus making our second integral:
+
+\[\frac{\phi(t)}{m+k_d} \frac{e^{\frac{k_p}{m+k_d}t}(m+k_d)}{k_p} - \int { \frac{\dot \phi(t)}{m+k_d} \frac{e^{\frac{k_p}{m+k_d}t}(m+k_d)}{k_p}}\]
+
+which simplifies to
+
+\[ \frac{\phi(t) e^{\frac{k_p}{m+k_d}t}}{kp} - \int \frac{\dot \phi(t) e^{\frac{k_p}{m+k_d}t}}{k_p} \]
+
+When we plug this back into our prior equation:
+
+\[v = s + e^{-\frac{k_p}{m+kd}t} (\frac{\phi(t) e^{\frac{k_p}{m+k_d}t}}{kp} - \int \frac{\dot \phi(t) e^{\frac{k_p}{m+k_d}t}}{k_p}) + c_1 e^{-\frac{k_p}{m+kd}t}\]
+
+which simplifies further to:
+
+\[v = s + \frac{\phi(t)}{kp} - e^{-\frac{k_p}{m+kd}t} \int \frac{\dot \phi(t) e^{\frac{k_p}{m+k_d}t}}{k_p} + c_1 e^{-\frac{k_p}{m+kd}t}\]
+
+
+We take the limit of our resulting system equation as \(t \to \infty\):
+
+\[\lim_{t \to \infty} v(t) = s + \frac{\phi(t)}{k_p} - e^{-\infty} \int \frac{e^{\infty} \dot \phi(t)}{m+k_d} \,dt + c_1 e^{-\infty}\]
+
+...and since \(e^{-\infty} = 0\):
+
+\[\lim_{t \to \infty} v(t) = s + \frac{\phi(t)}{k_p}\]
+
+Since \(\phi(t) < a\) as per our description, we can thus say that the upperbound velocity of the given problem is defined by
+
+\[v(t) < s + \frac{a}{k_p}\]
+
+\end{document}

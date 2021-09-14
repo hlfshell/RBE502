@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{RBE 502 HW 1 - Problem 1}
+\author{Keith Chester}
+\date{August 2021}
+
+\begin{document}
+
+\maketitle
+
+In this problem we are given a system of a mass at the end of a pendulum. We are given that the differential equation of motion for the system is \[ml^2\dot y=mglsin(q)+u\]
+If we choose a control function such that...
+\[u=-mglsin(q)-k_1q-k_2\dot q\]
+...for \(k_1,k_2>0\), we can solve for the controller by plugging in the \(u\) value.
+
+\[ml^2\ddot q =mglsin(q)-mglsin(q)-k_1q+k_2\dot q\]
+\[ml^2\ddot q + k_2\dot q + k_1 q = 0\]
+
+...which has the characteristic function
+
+\[ml^2\lambda + k_2\lambda + k_1\]
+...with roots solved via the quadratic formula:
+\[ \frac{-k_2^2 \pm \sqrt{k_2^2-4ml^2k_1}}{2ml^2}\]
+
+This ultimately gives us the equation of
+
+\[q = c_1e^{\frac{-k_2^2 + \sqrt{k_2^2-4ml^2k_1}}{2ml^2}} + c_2e^{\frac{-k_2^2 - \sqrt{k_2^2-4ml^2k_1}}{2ml^2}}\]
+
+\[\lim_{t \to \infty} q(t) = 0 = c_1e^{-\infty}+c_2e^{-\infty}\]
+\[c_1+c_2 = 0\]
+
+This controller is a PD controller (proportional and derivative). The proportional aspect of the controller will rapidly correct for errors, causing the control system to move the pendulum quickly to the desired portion.
+
+The derivative portion of the controller will attempt to adjust for overshoot from the controller by adjusting according to the rate of change of the error over time. This slows down the proportional response as it approaches the goal.
+
+This produces a fast reacting control system that *can* reach an equilibrium at the desired point, but may, due to the tuning of the constants, fail to do so. This is because it lacks an integral control component. This component would adjust for small errors over time. This means that a controller tuned incorrectly would still reach the correct value over a long enough period of time and not oscillate. This also means that small deviations from the desired process, IE small errors, would eventually adjust and be fixed. Without the integral portion, small errors may be a long time in being adjusted for if at all.
+
+\end{document}

@@ -1,0 +1,160 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin = 0.8in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{float}
+
+
+\title{RBE502 - Homework Set 3}
+\author{Keith Chester}
+\date{Due date: September 15, 2021}
+
+\begin{document}
+\maketitle
+
+\section*{Problem Statement}
+In this problem, we are given a series of equations for a rotating rigid bod spacecraft, seen below.
+
+\[J_1 \dot{\omega}_1 = (J_2 - J_3)\omega_2 \omega_3 + u_1\]
+\[J_2 \dot{\omega}_2 = (J_3 - J_1)\omega_3 \omega_1 + u_2\]
+\[J_3 \dot{\omega}_3 = (J_1 - J_2)\omega_1 \omega_2 + u_3\]
+
+In these equations, $\omega_1$, $\omega_2$, and $\omega_3$ are components of the angular velocity ${\boldmath{\omega}}$ along the principal axes. $u_1$, $u_2$, and $u_3$ are torque inputs along these same axes. $J_1$, $J_2$, and $J_3$ are the principal mass moments of inertia.
+
+\section*{Part A}
+
+In this problem, we use Lyapunov's theory of stability to determine that the system is stable for $\boldmath{\omega}=0$, and if so is it asymptotically stable?
+
+First, we look again at the original equations for the system presented to us, but we replace each variable for the torque input of $\boldmath{u} = 0$.
+
+\[J_1 \dot{\omega}_1 = (J_2 - J_3)\omega_2 \omega_3 \]
+\[J_2 \dot{\omega}_2 = (J_3 - J_1)\omega_3 \omega_1 \]
+\[J_3 \dot{\omega}_3 = (J_1 - J_2)\omega_1 \omega_2 \]
+
+We then look towards setting an $x_1$ and $x_2$ for the system to observe its behaviour, as we did in the prior homework. However, we have three equations for the entire system instead of a singular one, one for each principal axes. Instead of utilizing variables $x_1$ and $x_2$ to replace a singular variable, we will make use of $x_{1_i}$ and $x_{2_i}$ for $\omega_i$.
+
+\[ \boldmath{x} = \begin{bmatrix}
+    x_1 \\ x_2
+\end{bmatrix} = \begin{bmatrix}
+    x_{1_1} \\
+    x_{1_2} \\ 
+    x_{1_3} \\
+    \\
+    x_{2_1} \\
+    x_{2_2} \\
+    x_{2_3} 
+\end{bmatrix} =
+\begin{bmatrix}
+    \omega_1 \\
+    \omega_2 \\
+    \omega_3 \\
+    \\ 
+    \frac{(J_2 - J_3)\omega_2 \omega_3}{J_1} \\
+    \frac{(J_3 - J_1)\omega_3 \omega_1}{J_2} \\
+    \frac{(J_1 - J_2)\omega_1 \omega_2}{J_3}
+\end{bmatrix}\]
+
+We can use the Lagrange equation as our $V(\omega)$ to look at our system, which involves looking at the sum of kinetic and potential energy in our system; but we must note that since this is a satellite in space, there exists no potential energy. So instead of  $V(x_1) = \sum{\frac{1}{2}m_iv_i^2+m_igh_i}$, we will just use $V(x_1) = \sum{\frac{1}{2}m_iv_i^2}$. Here, $J_i$ as our inertial moment of inertia shall be our $m_i$ and our $v_i$ is the angular velocity $x_1$.
+
+\[ V(x_1) = \sum{\frac{1}{2} J_i x_{1_i}^2} \]
+\[ V(x_1) = \frac{1}{2} J_1 x_{1_1}^2 + \frac{1}{2} J_2 x_{1_2}^2 + \frac{1}{2} J_3 x_{1_3}^2 \]
+
+We then want to explore the value of $\dot{V}(x_1)$, which we do via deriving with the chain rule. Specifically, $\frac{1}{2}J_i x_1^2$ with the chain rule ($\frac{d}{du}J_i u = J_i u \dot{u})$, is thus $\frac{1}{2} J_i 2 x_1 \dot{x}_1 = J_i x_1 \dot{x}_1$, which since $\dot{x}_1 = x_2$, it now becomes $J_i x_1 x_2$. So our full $\dot{V}(x_1)$ becomes...
+
+\[ \dot{V}(x_1) = J_1 x_{1_1} x_{2_1} + J_2 x_{1_2} x_{2_2} + J_3 x_{1_3} x_{2_3}\]
+
+Now we subsibtute the values of each $x_{1_i}$ and $x_{2_i}$.
+
+\[ \dot{V}(\omega) = J_1 \omega_1 \frac{(J_2 - J_3)\omega_2 \omega_3}{J_1} + J_2 \omega_2 \frac{(J_3 - J_1)\omega_3 \omega_1}{J_2} + J_3 \omega_3 \frac{(J_1 - J_2)\omega_1 \omega_2}{J_3}\]
+
+\[ \dot{V}(\omega) = (J_2-J_3)\omega_1 \omega_2 \omega_3 + (J_3-J_1) \omega_1 \omega_2 \omega_3 + (J_1-J_2) \omega_1 \omega_2 \omega_3\]
+
+To determine if this is a Lyapunov function, three conditions must be met:
+\begin{enumerate}
+    \item $V(\omega^*)=0$
+    \item $V(\omega) > 0 \quad \forall \omega \epsilon D \backslash \{\omega^*\}$
+    \item $\dot{V}(\omega) \leq 0$ in $D$
+\end{enumerate}
+Additionally, the system is asymptotically stable if $\dot{V}(\omega) < 0 \quad \forall \omega \epsilon D \backslash \{\omega^*\}$. For our system, we are looking at $\omega^* = 0$.
+
+\[ V(\omega^*) = V(0) = \frac{1}{2} J_1 0^2 + \frac{1}{2} J_2 0^2 + \frac{1}{2} J_3 0^2 = 0 \]
+
+We see that $V(\omega^*) = 0$, thus covering the first condition. Since each $\omega$ value is squared, any value used for $\omega$ will result in a positive value for $V(\omega)$. This covers our second condition. If we look at the derivative of $V(\omega)$, $\dot{V}(\omega)$:
+
+\[ \dot{V}(\omega) = (J_2-J_3)\omega_1 \omega_2 \omega_3 + (J_3-J_1) \omega_1 \omega_2 \omega_3 + (J_1-J_2) \omega_1 \omega_2 \omega_3 \]
+\[
+    \dot{V}(\omega) = J_2 \omega_1 \omega_2 \omega_3 - J_3 \omega_1 \omega_2 \omega_3 + J_3 \omega_1 \omega_2 \omega_3 - J_1 \omega_1 \omega_2 \omega_3 + J_1 \omega_1 \omega_2 \omega_3 - J_2 \omega_1 \omega_2 \omega_3
+\]
+\[ \dot{V}(\omega) = 0\]
+
+Thus, we can see that this is a stable Lyapunov function as all aforementioned conditions have been met. $\dot{V}(\omega)$ is safely a continuous function ($0$) thus is stable, but since $\dot{V}(\omega) = 0$ and thus can not negative, it is not asymptotically stable. This would require $V(\omega) < 0 \quad \forall \omega \epsilon D \{\omega^* = 0\}$ instead.
+
+\section*{Part B}
+
+We now set our $u=-K\omega$ where $k_i > 0$. We wish to show that $\omega=0$ is asymptotically stable. Thus our system of equations are now:
+
+\[J_1 \dot{\omega}_1 = (J_2 - J_3)\omega_2 \omega_3 - k_1 \omega_1 \]
+\[J_2 \dot{\omega}_2 = (J_3 - J_1)\omega_3 \omega_1 - k_2 \omega2\]
+\[J_3 \dot{\omega}_3 = (J_1 - J_2)\omega_1 \omega_2 - k_3 \omega3 \]
+
+As before, we will make the $x_1$ and $x_2$ for our system.
+
+\[ \boldmath{x} = \begin{bmatrix}
+    x_1 \\ x_2
+\end{bmatrix} = \begin{bmatrix}
+    x_{1_1} \\
+    x_{1_2} \\ 
+    x_{1_3} \\
+    \\
+    x_{2_1} \\
+    x_{2_2} \\
+    x_{2_3} 
+\end{bmatrix} =
+\begin{bmatrix}
+    \omega_1 \\
+    \omega_2 \\
+    \omega_3 \\
+    \\ 
+    \frac{(J_2 - J_3)\omega_2 \omega_3 - k_1 \omega_1}{J_1} \\
+    \frac{(J_3 - J_1)\omega_3 \omega_1 - k_2 \omega_2}{J_2} \\
+    \frac{(J_1 - J_2)\omega_1 \omega_2 - k_2 \omega_3}{J_3}
+\end{bmatrix}\]
+
+We again will use the Lagrange equation to solve for our $V(\omega)$, still ignoring potential energy.
+
+\[ V(x_1) = \sum \frac{1}{2} J_i x_{1_i}^2 \]
+\[ V(x_1) = \frac{1}{2} J_1 x_{1_1}^2 + \frac{1}{2} J_2 x_{1_2}^2 + \frac{1}{2} J_3 x_{1_3}^2 \]
+
+Our $\dot{V}(x_1)$ value does not change, and still results in $ \dot{V}(x_1) = J_1 x_{1_1} x_{2_1} + J_2 x_{1_2} x_{2_2} + J_3 x_{1_3} x_{2_3}$. Our $x_2$ values are different, however. The resulting function when expanding back to utilize $\omega$:
+
+\[
+    \dot{V}(\omega) = J_1  \omega_1 \frac{(J_2 - J_3)\omega_2 \omega_3 - k_1 \omega_1}{J_1} + J_2 \omega_2 \frac{(J_3 - J_1)\omega_3 \omega_1 - k_2 \omega_2}{J_2} + J_3 \omega3 \frac{(J_1 - J_2)\omega_1 \omega_2 - k_2 \omega_3}{J_3}
+\]
+
+\[
+    \dot{V}(\omega) = (J_2-J_3)\omega_1 \omega_2 \omega_3 - k_1 \omega_1^2 + (J_3-J_1)\omega_1 \omega_2 \omega_3 - k_2 \omega_2^2 + (J_1-J_2)\omega_1 \omega_2 \omega_3 - k_3 \omega_3^2
+\]
+
+\[
+    \dot{V}(\omega) = J_2 \omega_1 \omega_2 \omega_3 - J_3 \omega_1 \omega_2 \omega_3 - k_1 \omega1^2 + J_3 \omega_1 \omega_2 \omega_3 - J_1 \omega_1 \omega_2 \omega_3 - k_2 \omega_2^2 + J_1 \omega_1 \omega_2 \omega_3 - J_2 \omega_1 \omega_2 \omega_3 - k_3 \omega_3^2
+\]
+
+\[
+    \dot{V}(\omega) = -k_1 \omega_1^2 - k_2 \omega_2^2 - k_3 \omega_3^2
+\]
+
+With these equations in hand, we will again explore the three conditions listed in \textbf{Part A}, again with $\omega^*=0$.
+
+\[
+    V(\omega^*) = V(0) = \frac{1}{2} J_1 0^2 + \frac{1}{2} J_2 0^2 + \frac{1}{2} J_3 0^2 = 0
+\]
+
+We see saw no changes in our $V(\omega)$ equation, so it is of no surprise that that $V(\omega^*) = 0$. Again, each $\omega$ value is squared, resulting in a positive or 0 outcome for all values This covers our first two conditions.
+
+We now look at the derivative of $V(\omega)$, $\dot{V}(\omega)$, noting again that $k_i > 0$. We can see that due to the squaring of each $\omega$ value, that irregardless of the value of $\omega$, it will be positive. The resulting negative in front of a positive $k_i$ results in a negative value for all values of $\omega$ save $0$. Thus $\dot{V}(\omega) < 0 \quad \forall \omega \epsilon D \backslash \{\omega^*\}$, and $\dot{V}(\omega^*)=0$. This means that the system is not only stable, but asymptotically stable.
+
+\end{document}
