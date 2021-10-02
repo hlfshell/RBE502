@@ -1,0 +1,310 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin = 0.8in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{float}
+\setcounter{MaxMatrixCols}{20}
+
+
+\title{RBE502 - Homework Set 4}
+\author{Keith Chester}
+\date{Due date: September 22, 2021}
+
+\begin{document}
+\maketitle
+
+\section*{Introduction}
+In this homework set we are looking at the dynamic system of a quadcopter.
+
+The quadrotor operates with a body frame located at its center of mass (in the center of the quadcopter, equidistant and within the same plane as its rotors) $\boldsymbol{c}$. We have a fixed reference frame $\boldsymbol{e}$ serving as our intertial frame.
+
+The external forces and moments on the system are represented by $\boldsymbol{r}$ and $\boldsymbol{n}$, where $\boldsymbol{r} = r_1 c_1 + r_2 c_2 + r_3 c_3$ and $\boldsymbol{n} = n_1 c_1 + n_2 c_2 + n_3 c_3$ directly applied to the center of mass. We are assuming that the torque of the rotor is proportionaly related to the input thrust via the constant $\sigma>0$, for $\tau_i = \sigma u_i$. We wll be utilizing $\boldsymbol{I}$ as our inertial matrix, where:
+
+\begin{equation}
+    \boldsymbol{I} = \begin{bmatrix}
+        I_x & 0 & 0 \\
+        0 & I_y & 0 \\
+        0 & 0 & I_z \\
+    \end{bmatrix}
+\end{equation}
+
+We have also had established for us that there exists a rotation matrix - $R_{C/E}$ - which rotates from frame $C$ to frame $E$. This rotaton matrix is the result of a Euler angle $z-y-x$ rotation along $\phi$,  $\theta$, and $\psi$, respectively. This rotation matrix is such that:
+
+\begin{equation}
+    R_{C/E} =
+    \begin{bmatrix}
+        \cos \left(\psi \right)\,\cos \left(\theta \right) & \cos \left(\psi \right)\,\sin \left(\phi \right)\,\sin \left(\theta \right)-\cos \left(\phi \right)\,\sin \left(\psi \right) & \sin \left(\phi \right)\,\sin \left(\psi \right)+\cos \left(\phi \right)\,\cos \left(\psi \right)\,\sin \left(\theta \right)\\
+        \cos \left(\theta \right)\,\sin \left(\psi \right) & \cos \left(\phi \right)\,\cos \left(\psi \right)+\sin \left(\phi \right)\,\sin \left(\psi \right)\,\sin \left(\theta \right) & \cos \left(\phi \right)\,\sin \left(\psi \right)\,\sin \left(\theta \right)-\cos \left(\psi \right)\,\sin \left(\phi \right)\\
+        -\sin \left(\theta \right) & \cos \left(\theta \right)\,\sin \left(\phi \right) & \cos \left(\phi \right)\,\cos \left(\theta \right)
+    \end{bmatrix}
+\end{equation}
+
+
+\section*{System Analysis}
+
+For our problem set, we are proivded that the equations that descirbe our system can be derived via:
+
+\begin{equation}
+    \dot{x} = \boldsymbol{v}
+\end{equation}
+\begin{equation}
+    \dot{\alpha} = T^{-1}\omega
+\end{equation}
+\begin{equation}
+    \dot{v} = -g \boldsymbol{e}_3 + \frac{1}{m}R_{C/E}(u_1+u2+u3+u4)\boldsymbol{c_3}+R_{C/E}\boldsymbol{r}
+\end{equation}
+\begin{equation}
+    \dot{\omega} = \boldsymbol{I}^{-1} ((u_2 - u_4) l c_1 + (u_3-u_1) l c_2 + (u_1 - u_2 + u_3 -u_4) \sigma c_3 + \boldsymbol{n} - \boldsymbol{\omega} \times \boldsymbol{I} \boldsymbol{\omega})
+\end{equation}
+
+\begin{equation}
+    T^{-1} = \begin{bmatrix}
+        1 & \sin{\phi} \tan{\theta} & \cos{\phi}\tan{theta} \\
+        0 & \cos{\phi} & -\sin{\phi} \\
+        0 & \frac{\sin{\phi}}{\cos{\theta}} & \frac{\cos{\phi}}{\theta}
+    \end{bmatrix}
+\end{equation}
+
+
+When we expand upon these functions, we find ourselves with a several matricies that make up a system of equations.
+
+\begin{equation}
+    \dot{\boldsymbol{x}} =
+    \begin{bmatrix}
+        v_1 \\
+        v_2 \\
+        v_3 \\
+    \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+    \dot{\boldsymbol{\alpha}} =
+    \begin{bmatrix}
+        \omega_1 +\omega_3 \,\cos \left(\phi \right)\,\tan \left(\theta \right)+\omega_2 \,\sin \left(\phi \right)\,\tan \left(\theta \right)\\
+        \omega_2 \,\cos \left(\phi \right)-\omega_3 \,\sin \left(\phi \right)\\
+        \frac{\omega_3 \,\cos \left(\phi \right)}{\cos \left(\theta \right)}+\frac{\omega_2 \,\sin \left(\phi \right)}{\cos \left(\theta \right)}
+    \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+    \dot{\boldsymbol{v}} = 
+    \begin{bmatrix}
+        \frac{{\left(\sin \left(\phi \right)\,\sin \left(\psi \right)+\cos \left(\phi \right)\,\cos \left(\psi \right)\,\sin \left(\theta \right)\right)}\,{\left(u_1 +u_2 +u_3 +u_4 \right)}}{m}\\
+        -\frac{{\left(\cos \left(\psi \right)\,\sin \left(\phi \right)-\cos \left(\phi \right)\,\sin \left(\psi \right)\,\sin \left(\theta \right)\right)}\,{\left(u_1 +u_2 +u_3 +u_4 \right)}}{m}\\
+        \frac{\cos \left(\phi \right)\,\cos \left(\theta \right)\,{\left(u_1 +u_2 +u_3 +u_4 \right)}}{m}-g
+    \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+    \dot{\boldsymbol{\omega}} = 
+    \begin{bmatrix}
+        \frac{l\,{\left(u_2 -u_4 \right)}+\mathrm{Iy}\,\omega_2 \,\omega_3 -\mathrm{Iz}\,\omega_2 \,\omega_3 }{\mathrm{Ix}}\\
+        -\frac{l\,{\left(u_1 -u_3 \right)}+\mathrm{Ix}\,\omega_1 \,\omega_3 -\mathrm{Iz}\,\omega_1 \,\omega_3 }{\mathrm{Iy}}\\
+        \frac{\sigma \,{\left(u_1 -u_2 +u_3 -u_4 \right)}+\mathrm{Ix}\,\omega_1 \,\omega_2 -\mathrm{Iy}\,\omega_1 \,\omega_2 }{\mathrm{Iz}}
+    \end{bmatrix}
+\end{equation}
+
+Now that we have these system equations, we can append them to form our $\dot{\boldsymbol{z}}$.
+
+\begin{equation}
+    \dot{\boldsymbol{z}} = 
+    \begin{bmatrix}
+        \dot{x}_1 \\
+        \dot{x}_2 \\
+        \dot{x}_3 \\
+        \dot{\phi}_1 \\
+        \dot{\theta}_2 \\
+        \dot{\psi}_3 \\
+        \dot{v}_1 \\
+        \dot{v}_2 \\
+        \dot{v}_3 \\
+        \dot{\omega}_1 \\
+        \dot{\omega}_2 \\
+        \dot{\omega}_3 \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        v_1 \\
+        v_2 \\
+        v_3 \\[4pt]
+        \omega_1 +\omega_3 \,\cos \left(\phi \right)\,\tan \left(\theta \right)+\omega_2 \,\sin \left(\phi \right)\,\tan \left(\theta \right)\\
+        \omega_2 \,\cos \left(\phi \right)-\omega_3 \,\sin \left(\phi \right)\\[4pt]
+        \frac{\omega_3 \,\cos \left(\phi \right)}{\cos \left(\theta \right)}+\frac{\omega_2 \,\sin \left(\phi \right)}{\cos \left(\theta \right)}\\[4pt]
+        \frac{{\left(\sin \left(\phi \right)\,\sin \left(\psi \right)+\cos \left(\phi \right)\,\cos \left(\psi \right)\,\sin \left(\theta \right)\right)}\,{\left(u_1 +u_2 +u_3 +u_4 \right)}}{m}\\[4pt]
+        -\frac{{\left(\cos \left(\psi \right)\,\sin \left(\phi \right)-\cos \left(\phi \right)\,\sin \left(\psi \right)\,\sin \left(\theta \right)\right)}\,{\left(u_1 +u_2 +u_3 +u_4 \right)}}{m}\\[4pt]
+        \frac{\cos \left(\phi \right)\,\cos \left(\theta \right)\,{\left(u_1 +u_2 +u_3 +u_4 \right)}}{m}-g\\[4pt]
+        \frac{l\,{\left(u_2 -u_4 \right)}+\mathrm{Iy}\,\omega_2 \,\omega_3 -\mathrm{Iz}\,\omega_2 \,\omega_3 }{\mathrm{Ix}}\\[4pt]
+        -\frac{l\,{\left(u_1 -u_3 \right)}+\mathrm{Ix}\,\omega_1 \,\omega_3 -\mathrm{Iz}\,\omega_1 \,\omega_3 }{\mathrm{Iy}}\\[4pt]
+        \frac{\sigma \,{\left(u_1 -u_2 +u_3 -u_4 \right)}+\mathrm{Ix}\,\omega_1 \,\omega_2 -\mathrm{Iy}\,\omega_1 \,\omega_2 }{\mathrm{Iz}}
+        \end{bmatrix}
+\end{equation}
+
+\section*{Problem 1 - Part A}
+
+In this part of the problem, we are considering $ \boldsymbol{z}_0 = \begin{bmatrix}
+    x_1 & x_2 & x_3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+\end{bmatrix}^T$ and $ \boldsymbol{u}_0 = \begin{bmatrix}
+    1 & 1 & 1 & 1
+\end{bmatrix}^T \ \frac{mg}{4}$. We wish to show that $(z, u) = (z_0, u_0)$ is an equilibrium point of this quadrotor system. Taking these values as defined, and plugging them into our $\dot{\boldsymbol{z}}$ calculates to the simple output of:
+
+\begin{equation}
+    \begin{aligned}
+        \begin{bmatrix}
+            \dot{x}_1 \\ \dot{x}_2 \\ \dot{x}_3 \\
+            \dot{\phi} \\ \dot{\theta} \\ \dot{\psi} \\
+            \dot{v}_1 \\ \dot{v}_2 \\ \dot{v}_3 \\
+            \dot{\omega}_1 \\ \dot{\omega}_2 \\ \dot{\omega}_3 \\
+        \end{bmatrix}
+        = 
+        \begin{bmatrix}
+            0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0
+        \end{bmatrix}
+    \end{aligned}
+\end{equation}
+
+Since we see in the above equations that in this position with the targeted input, we have a system in a stable equilibrium. We can claim as such as there are no non-zero velocities or accelerations at this point.
+
+At any given location in space with no external forces, the drone can hover when perfectly level - ie $\phi=\theta=\psi=0$ - with no acceleration and orientation change if the resulting thrust is $\frac{mg}{4}$ - or, each motor providing resulting thrust of one fourth the vehicle's weight to cancel the force of gravity.
+
+\section*{Problem 1 - Part B}
+
+We now wish to find the linear approximation of the quadrotor system using the vacinity of the aforementioned equilibrium point $(\boldsymbol{z_0}, \boldsymbol{u}_0)$.
+
+To do this, we will be denoting $z_d$ as our desired $z$, and $u_d$ as our $desired$ u. We will note then that $e := z_d - z$ and $w := u_d - u$. Using Taylor Serie's approximation we can then create a linear approximation.
+
+\begin{equation}
+    f(z, u) \approx f(z_d, u_d) + \frac{\partial f}{\partial z} \Big|_{(z,u)=(z_d, u_d)}(z-z_d) + \frac{\partial f}{\partial u} \Big|_{(z,u)=(z_d,u_d)}(u-u_d)
+\end{equation}
+
+If we let our linearized approximation have $\boldsymbol{A} := \frac{\partial f}{\partial z} \Big|_{(z,u)=(z_d, u_d)}$ and $\boldsymbol{B} := \frac{\partial f}{\partial u} \Big|_{(z,u)=(z_d,u_d)}$, we can then write an equation for $\dot{e} = \boldsymbol{A}e + \boldsymbol{B}w$. To create our $\boldsymbol{A}$ and $\boldsymbol{B}$, we utilized the Jacobian of our $\dot{z}$, solved prior, to $z$ and $u$. Thus $\boldsymbol{A}$ is a $12x12$ matrix and $\boldsymbol{B}$ is a $12x4$ matrix. If we utilize the equilibrium point from Part A, we can then plug in $z_0$ and $u_0$, defined earlier. Thus:
+
+\begin{equation}
+    \boldsymbol{A} = \begin{bmatrix}
+        \frac{\partial \dot{z}_1}{\partial{x_1}} & \frac{\partial \dot{z}_1}{\partial{x_2}} & \ldots & \frac{\partial \dot{z}_1}{\partial \omega_2} & \frac{\partial \dot{z}_1}{\partial \omega_3} \\
+        \vdots & & \ddots & & \vdots \\
+        \frac{\partial \dot{z}_{12}}{\partial{x_1}} & \frac{\partial \dot{z}_{12}}{\partial{x_2}} & \ldots & \frac{\partial \dot{z}_{12}}{\partial \omega_2} & \frac{\partial \dot{z}_{12}}{\partial \omega_3} \\
+    \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+    \boldsymbol{B} = \begin{bmatrix}
+        \frac{\partial \dot{z}_1}{\partial{u_1}} & \frac{\partial \dot{z}_1}{\partial{u_2}} & \frac{\partial \dot{z}_0}{\partial u_3} & \frac{\partial \dot{z}_0}{\partial u_4} \\
+        \vdots & \vdots & \vdots & \vdots \\
+        \frac{\partial \dot{z}_{12}}{\partial{u_1}} & \frac{\partial \dot{z}_{12}}{\partial{u_2}} & \frac{\partial \dot{z}_{12}}{\partial u_3} & \frac{\partial \dot{z}_{12}}{\partial u_4}
+    \end{bmatrix}
+\end{equation}
+
+The $\boldsymbol{A}$ matrix is large, but can be simplified in writing by noting that, for this system it can be divided into four quadrants. Two exist as $0_6$, which represents a $6x6$ all-zero matrix. Another, $I_6$, represents a $6x6$ identity matrix. Finally, our bottom corner which we'll label as $A_{21}$, is a matrix we'll specifically define below.
+\begin{equation}
+    A_{21} = \begin{bmatrix}
+        0 & 0 & 0 & 0 & g & 0 \\
+        0 & 0 & 0 & -g & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 \\
+    \end{bmatrix}
+\end{equation}
+\begin{equation}
+    \boldsymbol{A} = \begin{bmatrix}
+        0_6 & I_6 \\
+        A_{21} & 0_6
+    \end{bmatrix}
+\end{equation}
+
+Our $\boldsymbol{B}$ matrix is defined below:
+
+\begin{equation}
+    \boldsymbol{B} =
+    \begin{bmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0\\
+        \frac{1}{m} & \frac{1}{m} & \frac{1}{m} & \frac{1}{m}\\
+        0 & \frac{l}{\mathrm{Ix}} & 0 & -\frac{l}{\mathrm{Ix}}\\
+        -\frac{l}{\mathrm{Iy}} & 0 & \frac{l}{\mathrm{Iy}} & 0\\
+        \frac{\sigma }{\mathrm{Iz}} & -\frac{\sigma }{\mathrm{Iz}} & \frac{\sigma }{\mathrm{Iz}} & -\frac{\sigma }{\mathrm{Iz}}
+        \end{bmatrix}
+\end{equation}
+
+We thus have a linearized model for the system with $\dot{e} = \boldsymbol{A}e + \boldsymbol{B}w$.
+
+\section*{Problem 1 - Part C}
+
+Now we are tasked with determining if our linear system is controllable. To do this, we must check to see if matrix $\boldsymbol{C}$ has full rank. We define $\boldsymbol{C}$ as:
+
+\begin{equation}
+    \boldsymbol{C} = \begin{bmatrix}
+        \boldsymbol{A}^0\boldsymbol{B} & \boldsymbol{A}^1\boldsymbol{B} * \boldsymbol{A}^2\boldsymbol{B} & \ldots & \boldsymbol{A}^{n-1}\boldsymbol{B}
+    \end{bmatrix}
+\end{equation}
+
+...with $n=12$ for each value within our $\dot{z}$. This results in a $12x48$ matrix that is far too large to output here. When we look at the rank of this matrix, we see that it is full ranked - $rank(\boldsymbol{C}) = 12$. This tells us that the linearized system is indeed controllable.
+
+
+\section*{Problem 2}
+In this problem, we let $\dot{x}=\boldsymbol{A}x$, for $x \ \epsilon \ \mathbb{R}$ and $\boldsymbol{A} \ \epsilon \ \mathbb{R}^{nxn}$. We assume $\boldsymbol{A}$ has distinct real eigenvalues $\lambda_i < 0$ for $i = 1,2,\dots,n$. We wish to prove that $x = 0$ is the only equilibrium point of the system, and that it is also asymptotically stable.
+
+If $\boldsymbol{A}$ has real eigenvalues, we can thus present them as such (shrunk for room):
+
+\begin{equation}
+    \begin{bmatrix}
+        \dot{\boldsymbol{x}}_1 \\
+        \dot{\boldsymbol{x}}_2 \\
+        \dot{\boldsymbol{x}}_3 \\
+        \vdots \\
+        \dot{\boldsymbol{x}}_{n-2} \\
+        \dot{\boldsymbol{x}}_{n-1} \\
+        \dot{\boldsymbol{x}}_{n} \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \lambda_1 & 0 & 0 & \dots & 0 & 0 & 0 \\
+        0 & \lambda_2 & 0 & \dots & 0 & 0 & 0 \\
+        0 & 0 & \lambda_3 & \dots & 0 & 0 & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
+        0 & 0 & 0 & \dots & \lambda_{n-2} & 0 & 0 \\ 
+        0 & 0 & 0 & \dots & 0 & \lambda_{n-1} & 0 \\
+        0 & 0 & 0 & \dots & 0 & 0 & \lambda_n
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+        x_3 \\
+        \vdots \\
+        x_{n-2} \\
+        x_{n-1} \\
+        x_n
+    \end{bmatrix}
+\end{equation}
+
+From this, we can determine that $\dot{x}_i = \lambda_i(0)$, such that $\dot{x}_i = 0$ for each $x_i$. We then look at the solution of this system:
+
+\begin{equation}
+    e^{\boldsymbol{A}t} := \sum_{k=0}^{\infty} \frac{\boldsymbol{A}^k t^k}{k!}
+\end{equation}
+
+which we can write as...
+
+\begin{equation}
+    x(t) = c_1 e^{\lambda_1 t} + c_2 e^{\lambda_2 t} + c_3 e^{\lambda_3 t} + \dots + c_n e^{\lambda_n t}
+\end{equation}
+
+Since we stated earlier that we assumed that each lambda has a negative real parts in its eigenvalues ($\lambda_i < 0$), this results in:
+
+\begin{equation}
+    x(t) = c_1 e^{-\infty} + c_2 e^{-\infty} + c_3 e^{-\infty} + \dots + c_n e^{-\infty}
+\end{equation}
+
+...which would push all values to 0. This means that $\lvert \lvert x(t) \rvert \rvert \to 0$ as $ t \to \infty$.
+
+\end{document}
