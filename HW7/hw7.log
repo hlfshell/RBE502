@@ -1,0 +1,401 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.9.1)  17 OCT 2021 20:27
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/home/keith/projects/RBE502/HW7/hw7.tex
+(/home/keith/projects/RBE502/HW7/hw7.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-01-09> xparse <2020-03-03> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+)
+\c@part=\count177
+\c@section=\count178
+\c@subsection=\count179
+\c@subsubsection=\count180
+\c@paragraph=\count181
+\c@subparagraph=\count182
+\c@figure=\count183
+\c@table=\count184
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2020/08/01 v1.3d Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count185
+\Gm@cntv=\count186
+\c@Gm@tempcnt=\count187
+\Gm@bindingoffset=\dimen139
+\Gm@wd@mp=\dimen140
+\Gm@odd@mp=\dimen141
+\Gm@even@mp=\dimen142
+\Gm@layoutwidth=\dimen143
+\Gm@layoutheight=\dimen144
+\Gm@layouthoffset=\dimen145
+\Gm@layoutvoffset=\dimen146
+\Gm@dimlist=\toks18
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen147
+\Gin@req@width=\dimen148
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/09/23 v2.17i AMS math features
+\@mathmargin=\skip49
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+ (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks19
+\ex@=\dimen149
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen150
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count188
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count189
+\leftroot@=\count190
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count191
+\DOTSCASE@=\count192
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box47
+\strutbox@=\box48
+\big@size=\dimen151
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count193
+\c@MaxMatrixCols=\count194
+\dotsspace@=\muskip16
+\c@parentequation=\count195
+\dspbrk@lvl=\count196
+\tag@help=\toks20
+\row@=\count197
+\column@=\count198
+\maxfields@=\count199
+\andhelp@=\toks21
+\eqnshift@=\dimen152
+\alignsep@=\dimen153
+\tagshift@=\dimen154
+\tagwidth@=\dimen155
+\totwidth@=\dimen156
+\lineht@=\dimen157
+\@envbody=\toks22
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen158
+\captionmargin@=\dimen159
+\captionwidth=\dimen160
+\caption@tempdima=\dimen161
+\caption@indent=\dimen162
+\caption@parindent=\dimen163
+\caption@hangindent=\dimen164
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count266
+\c@continuedfloat=\count267
+)
+\c@subfigure=\count268
+\c@subtable=\count269
+) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/01/29 v2.7 Span multiple rows of a table
+\multirow@colwidth=\skip52
+\multirow@cntb=\count270
+\multirow@dima=\skip53
+\bigstrutjot=\dimen165
+) (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2020/03/24 v1.24 mathematical typesetting tools
+ (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count271
+\calc@Bcount=\count272
+\calc@Adimen=\dimen166
+\calc@Bdimen=\dimen167
+\calc@Askip=\skip54
+\calc@Bskip=\skip55
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count273
+\calc@Cskip=\skip56
+) (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
+\g_MT_multlinerow_int=\count274
+\l_MT_multwidth_dim=\dimen168
+\origjot=\skip57
+\l_MT_shortvdotswithinadjustabove_dim=\dimen169
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen170
+\l_MT_above_intertext_sep=\dimen171
+\l_MT_below_intertext_sep=\dimen172
+\l_MT_above_shortintertext_sep=\dimen173
+\l_MT_below_shortintertext_sep=\dimen174
+\xmathstrut@box=\box49
+\xmathstrut@dim=\dimen175
+) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count275
+\float@exts=\toks24
+\float@box=\box50
+\@float@everytoks=\toks25
+\@floatcapt=\box51
+) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2020-01-29 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count276
+\l__pdf_internal_box=\box52
+) (/home/keith/projects/RBE502/HW7/hw7.aux)
+\openout1 = `hw7.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(57.81621pt, 498.66258pt, 57.81621pt)
+* v-part:(T,H,B)=(57.81621pt, 679.33757pt, 57.81621pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=498.66258pt
+* \textheight=679.33757pt
+* \oddsidemargin=-14.45378pt
+* \evensidemargin=-14.45378pt
+* \topmargin=-51.45378pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count277
+\scratchdimen=\dimen176
+\scratchbox=\box53
+\nofMPsegments=\count278
+\nofMParguments=\count279
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count280
+\MPscratchDim=\dimen177
+\MPnumerator=\count281
+\makeMPintoPDFobject=\count282
+\everyMPtoPDFconversion=\toks27
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<figures/2D-rr.001.jpeg, id=1, 781.92125pt x 726.715pt>
+File: figures/2D-rr.001.jpeg Graphic file (type jpg)
+<use figures/2D-rr.001.jpeg>
+Package pdftex.def Info: figures/2D-rr.001.jpeg  used on input line 25.
+(pdftex.def)             Requested size: 199.46198pt x 185.38194pt.
+<figures/doublependulum.jpg, id=2, 366.36874pt x 332.24126pt>
+File: figures/doublependulum.jpg Graphic file (type jpg)
+<use figures/doublependulum.jpg>
+Package pdftex.def Info: figures/doublependulum.jpg  used on input line 34.
+(pdftex.def)             Requested size: 199.46198pt x 180.88284pt.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/keith/projects/RBE502/HW7/figures/2D-rr.001.jpeg> </home/keith/projects/RBE502/HW7/figures/doublependulum.jpg>] [2]
+<figures/error-c1.png, id=24, 372.4314pt x 303.7749pt>
+File: figures/error-c1.png Graphic file (type png)
+<use figures/error-c1.png>
+Package pdftex.def Info: figures/error-c1.png  used on input line 179.
+(pdftex.def)             Requested size: 162.06381pt x 132.18736pt.
+<figures/rotational-position-c1.png, id=25, 372.4314pt x 303.7749pt>
+File: figures/rotational-position-c1.png Graphic file (type png)
+<use figures/rotational-position-c1.png>
+Package pdftex.def Info: figures/rotational-position-c1.png  used on input line 184.
+(pdftex.def)             Requested size: 162.06381pt x 132.18736pt.
+<figures/rotational-velocity-c1.png, id=26, 372.4314pt x 303.7749pt>
+File: figures/rotational-velocity-c1.png Graphic file (type png)
+<use figures/rotational-velocity-c1.png>
+Package pdftex.def Info: figures/rotational-velocity-c1.png  used on input line 189.
+(pdftex.def)             Requested size: 162.06381pt x 132.18736pt.
+<figures/error-c2.png, id=27, 372.4314pt x 303.7749pt>
+File: figures/error-c2.png Graphic file (type png)
+<use figures/error-c2.png>
+Package pdftex.def Info: figures/error-c2.png  used on input line 203.
+(pdftex.def)             Requested size: 162.06381pt x 132.18736pt.
+<figures/rotational-position-c2.png, id=28, 368.8179pt x 303.7749pt>
+File: figures/rotational-position-c2.png Graphic file (type png)
+<use figures/rotational-position-c2.png>
+Package pdftex.def Info: figures/rotational-position-c2.png  used on input line 208.
+(pdftex.def)             Requested size: 162.06381pt x 133.48059pt.
+<figures/rotational-velocity-c2.png, id=29, 368.8179pt x 303.7749pt>
+File: figures/rotational-velocity-c2.png Graphic file (type png)
+<use figures/rotational-velocity-c2.png>
+Package pdftex.def Info: figures/rotational-velocity-c2.png  used on input line 213.
+(pdftex.def)             Requested size: 162.06381pt x 133.48059pt.
+<figures/error-c3.png, id=30, 368.8179pt x 303.7749pt>
+File: figures/error-c3.png Graphic file (type png)
+<use figures/error-c3.png>
+Package pdftex.def Info: figures/error-c3.png  used on input line 227.
+(pdftex.def)             Requested size: 162.06381pt x 133.48059pt.
+<figures/rotational-position-c3.png, id=31, 368.8179pt x 303.7749pt>
+File: figures/rotational-position-c3.png Graphic file (type png)
+<use figures/rotational-position-c3.png>
+Package pdftex.def Info: figures/rotational-position-c3.png  used on input line 232.
+(pdftex.def)             Requested size: 162.06381pt x 133.48059pt.
+<figures/rotational-velocity-c3.png, id=32, 368.8179pt x 303.7749pt>
+File: figures/rotational-velocity-c3.png Graphic file (type png)
+<use figures/rotational-velocity-c3.png>
+Package pdftex.def Info: figures/rotational-velocity-c3.png  used on input line 237.
+(pdftex.def)             Requested size: 162.06381pt x 133.48059pt.
+ [3 </home/keith/projects/RBE502/HW7/figures/error-c1.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/rotational-position-c1.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/rotational-velocity-c1.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/error-c2.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/rotational-position-c2.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/rotational-velocity-c2.png (PNG copy)>]
+<figures/error-d1.png, id=40, 372.4314pt x 303.534pt>
+File: figures/error-d1.png Graphic file (type png)
+<use figures/error-d1.png>
+Package pdftex.def Info: figures/error-d1.png  used on input line 262.
+(pdftex.def)             Requested size: 162.06381pt x 132.08253pt.
+<figures/rotational-position-d1.png, id=41, 372.4314pt x 303.534pt>
+File: figures/rotational-position-d1.png Graphic file (type png)
+<use figures/rotational-position-d1.png>
+Package pdftex.def Info: figures/rotational-position-d1.png  used on input line 267.
+(pdftex.def)             Requested size: 162.06381pt x 132.08253pt.
+<figures/rotational-velocity-d1.png, id=42, 362.7954pt x 303.7749pt>
+File: figures/rotational-velocity-d1.png Graphic file (type png)
+<use figures/rotational-velocity-d1.png>
+Package pdftex.def Info: figures/rotational-velocity-d1.png  used on input line 272.
+(pdftex.def)             Requested size: 162.06381pt x 135.70087pt.
+<figures/error-d2.png, id=43, 362.7954pt x 303.534pt>
+File: figures/error-d2.png Graphic file (type png)
+<use figures/error-d2.png>
+Package pdftex.def Info: figures/error-d2.png  used on input line 287.
+(pdftex.def)             Requested size: 162.06381pt x 135.59325pt.
+<figures/rotational-position-d2.png, id=44, 362.7954pt x 303.534pt>
+File: figures/rotational-position-d2.png Graphic file (type png)
+<use figures/rotational-position-d2.png>
+Package pdftex.def Info: figures/rotational-position-d2.png  used on input line 292.
+(pdftex.def)             Requested size: 162.06381pt x 135.59325pt.
+<figures/rotational-velocity-d2.png, id=45, 362.7954pt x 303.7749pt>
+File: figures/rotational-velocity-d2.png Graphic file (type png)
+<use figures/rotational-velocity-d2.png>
+Package pdftex.def Info: figures/rotational-velocity-d2.png  used on input line 297.
+(pdftex.def)             Requested size: 162.06381pt x 135.70087pt.
+ [4 </home/keith/projects/RBE502/HW7/figures/error-c3.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/rotational-position-c3.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/rotational-velocity-c3.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/error-d1.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/rotational-position-d1.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/rotational-velocity-d1.png (PNG copy)>]
+<figures/error-d3.png, id=49, 372.6723pt x 303.7749pt>
+File: figures/error-d3.png Graphic file (type png)
+<use figures/error-d3.png>
+Package pdftex.def Info: figures/error-d3.png  used on input line 312.
+(pdftex.def)             Requested size: 162.06381pt x 132.10393pt.
+<figures/rotational-position-d3.png, id=50, 369.0588pt x 303.534pt>
+File: figures/rotational-position-d3.png Graphic file (type png)
+<use figures/rotational-position-d3.png>
+Package pdftex.def Info: figures/rotational-position-d3.png  used on input line 317.
+(pdftex.def)             Requested size: 162.06381pt x 133.29137pt.
+<figures/rotational-velocity-d3.png, id=51, 372.6723pt x 303.7749pt>
+File: figures/rotational-velocity-d3.png Graphic file (type png)
+<use figures/rotational-velocity-d3.png>
+Package pdftex.def Info: figures/rotational-velocity-d3.png  used on input line 322.
+(pdftex.def)             Requested size: 162.06381pt x 132.10393pt.
+ [5 </home/keith/projects/RBE502/HW7/figures/error-d2.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/rotational-position-d2.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/rotational-velocity-d2.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/error-d3.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/rotational-position-d3.png (PNG copy)> </home/keith/projects/RBE502/HW7/figures/rotational-velocity-d3.png (PNG copy)>] (/home/keith/projects/RBE502/HW7/hw7.aux) ) 
+Here is how much of TeX's memory you used:
+ 5041 strings out of 481252
+ 80389 string characters out of 5915889
+ 376490 words of memory out of 5000000
+ 21905 multiletter control sequences out of 15000+600000
+ 414041 words of font info for 67 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 69i,11n,77p,468b,482s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on /home/keith/projects/RBE502/HW7/hw7.pdf (5 pages, 1487224 bytes).
+PDF statistics:
+ 108 PDF objects out of 1000 (max. 8388607)
+ 63 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+
